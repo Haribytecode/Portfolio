@@ -3,8 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hariharan J — Systems Software Developer. Built Blackpeak, a 32-bit x86 OS kernel from scratch in C and Assembly. 3rd year B.Tech IT, Sri Sairam Institute of Technology.">
+<meta name="theme-color" content="#04060D">
+<meta property="og:title" content="Hariharan J — Systems Software Developer">
+<meta property="og:description" content="Built Blackpeak, a 32-bit x86 OS kernel from scratch. Ring 0↔3 transitions, demand paging, preemptive scheduler.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://haribytecode.github.io/Portfolio">
 <title>Hariharan J — Systems Software Developer</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"></noscript>
 <style>
 /* ── RESET ── */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -32,8 +42,18 @@ ul{list-style:none}
 }
 
 /* ── BASE ── */
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nh)}
 body{background:var(--bg);color:var(--text);font-family:var(--fb);overflow-x:hidden;line-height:1.6}
+
+/* ── FOCUS VISIBLE ── */
+:focus-visible{outline:2px solid var(--cr);outline-offset:3px;border-radius:4px}
+:focus:not(:focus-visible){outline:none}
+
+/* ── TOUCH FAST TAP ── */
+a,button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+
+/* ── CONTAIN — reduce repaints ── */
+.pc,.sg,.sc,.cc,.pub{contain:layout style}
 
 /* ── CUSTOM CURSOR (mouse only) ── */
 @media(hover:hover) and (pointer:fine){
@@ -46,8 +66,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--fb);overflow-x:hid
 }
 
 /* ── BG ORBS ── */
-.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;will-change:transform}
-.orb1{width:clamp(240px,38vw,500px);height:clamp(240px,38vw,500px);background:radial-gradient(circle,rgba(232,56,79,.14),transparent 70%);top:-80px;right:-80px;animation:float 14s ease-in-out infinite}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+.orb1{width:clamp(240px,38vw,500px);height:clamp(240px,38vw,500px);background:radial-gradient(circle,rgba(232,56,79,.14),transparent 70%);top:-80px;right:-80px;animation:float 14s ease-in-out infinite;animation-fill-mode:both}
 .orb2{width:clamp(200px,30vw,400px);height:clamp(200px,30vw,400px);background:radial-gradient(circle,rgba(157,111,255,.11),transparent 70%);bottom:22%;left:-60px;animation:float 16s ease-in-out infinite;animation-delay:-6s}
 .orb3{width:clamp(160px,24vw,320px);height:clamp(160px,24vw,320px);background:radial-gradient(circle,rgba(56,200,240,.09),transparent 70%);bottom:8%;right:15%;animation:float 12s ease-in-out infinite;animation-delay:-9s}
 @keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-22px) scale(1.03)}}
@@ -78,6 +98,8 @@ nav.top-nav{
 }
 .nav-links a:hover{color:var(--text)}
 .nav-links a:hover::after{transform:scaleX(1)}
+.nav-links a.nav-active{color:var(--text)}
+.nav-links a.nav-active::after{transform:scaleX(1)}
 .nav-hire{
   padding:.5rem 1.25rem;border-radius:100px;
   background:var(--cr);color:#fff;
@@ -143,12 +165,12 @@ section{position:relative;z-index:1;padding:clamp(4.5rem,9vw,8rem) clamp(1.25rem
 }
 
 /* ── REVEAL ── */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .62s var(--ease),transform .62s var(--ease)}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
 .reveal.in{opacity:1;transform:translateY(0)}
 
 /* ── HERO ── */
 #hero{
-  min-height:100vh;display:flex;align-items:center;
+  min-height:100dvh;display:flex;align-items:center;
   padding-top:calc(var(--nh) + 2rem);
   padding-left:clamp(1.25rem,5vw,4rem);
   padding-right:clamp(1.25rem,5vw,4rem);
@@ -293,7 +315,7 @@ section{position:relative;z-index:1;padding:clamp(4.5rem,9vw,8rem) clamp(1.25rem
   background:radial-gradient(circle at 50% -10%,rgba(232,56,79,.05),transparent 55%);
   opacity:0;transition:opacity .28s var(--ease);pointer-events:none;
 }
-.pc:hover{transform:translateY(-5px);border-color:rgba(232,56,79,.2);box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.pc:hover{transform:translateY(-5px) translateZ(0);border-color:rgba(232,56,79,.2);box-shadow:0 18px 50px rgba(0,0,0,.35)}
 .pc:hover::after{opacity:1}
 .pc:active{transform:translateY(-2px) scale(.99)}
 
@@ -444,6 +466,8 @@ footer em{color:var(--cr);font-style:normal}
 @media(max-width:768px){.nav-links,.nav-hire{display:none}.ham{display:flex}.mob{display:flex}}
 
 @media(max-width:960px){
+  @media(max-width:960px){
+
   .hero-wrap{grid-template-columns:1fr;gap:2.5rem}
   #about .inner{grid-template-columns:1fr;gap:2.5rem}
   .bento{grid-template-columns:1fr;grid-template-rows:auto}
@@ -452,6 +476,7 @@ footer em{color:var(--cr);font-style:normal}
   .pub{flex-direction:column;gap:1.2rem}
 }
 @media(max-width:560px){
+  .orb{display:none}
   .hero-ctas{flex-direction:column;align-items:stretch}
   .btn-p,.btn-g{text-align:center}
   .stats{grid-template-columns:1fr 1fr}
@@ -460,6 +485,14 @@ footer em{color:var(--cr);font-style:normal}
   .hero-scroll{display:none}
 }
 @media(max-width:380px){.stats{grid-template-columns:1fr}}
+
+/* ── REDUCED MOTION ── */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none;transition:none}
+  .orb{animation:none}
+}
 </style>
 </head>
 <body>
@@ -505,7 +538,7 @@ footer em{color:var(--cr);font-style:normal}
         <span class="n1">Hariharan J</span>
         <span class="n2">Systems<br>Software Dev.</span>
       </h1>
-      <p class="hero-role">// blackpeak kernel engineer &nbsp;·&nbsp; kanchipuram, india</p>
+      <p class="hero-role">// 3rd year &nbsp;·&nbsp; blackpeak kernel engineer &nbsp;·&nbsp; kanchipuram, india</p>
       <p class="hero-sub">Building systems-level software most engineers never touch — a custom x86 OS kernel from bare metal, low-level tooling, and bare-metal performance. Driven by Linux internals and a refusal to stay surface-level.</p>
       <div class="hero-ctas">
         <a href="#projects" class="btn-p">View Projects</a>
@@ -539,7 +572,7 @@ footer em{color:var(--cr);font-style:normal}
     <div class="about-body reveal">
       <div class="sec-label">About Me</div>
       <h2 class="sec-title">Low-level systems,<br>high-level ambition.</h2>
-      <p>I'm <strong>Hariharan J </strong>, a Systems Software Developer and 2nd-year B.Tech IT student at Sri Sairam Institute of Technology, Kanchipuram (Expected Graduation: May 2028). I work on the parts of computing most developers actively avoid — the kernel, the bare metal, the code where a wrong bit crashes everything.</p>
+      <p>I'm <strong>Hariharan J </strong>, a Systems Software Developer and 3rd-year B.Tech IT student at Sri Sairam Institute of Technology, Kanchipuram (Expected Graduation: May 2028). I work on the parts of computing most developers actively avoid — the kernel, the bare metal, the code where a wrong bit crashes everything.</p>
       <p>I designed and built <strong>Blackpeak</strong> — a monolithic, higher-half 32-bit x86 kernel with isolated virtual address spaces, demand paging, a preemptive scheduler, and Ring 0 ↔ Ring 3 privilege transitions via TSS-based stack switching. No tutorials. No shortcuts. Every subsystem is mine.</p>
       <p>Driven by <strong>Linux kernel development</strong>, low-level tooling, and high-performance bare-metal engineering. Published on Medium. Currently designing a Virtual File System layer.</p>
     </div>
@@ -557,7 +590,7 @@ footer em{color:var(--cr);font-style:normal}
         <div class="sl">LeetCode problems solved in C++</div>
       </div>
       <div class="sc">
-        <div class="sn r">2nd</div>
+        <div class="sn r">3rd</div>
         <div class="sl">Year student, kernel-level scope</div>
       </div>
     </div>
@@ -693,10 +726,10 @@ footer em{color:var(--cr);font-style:normal}
   <div class="inner">
     <div class="reveal">
       <div class="sec-label">Contact</div>
-      <h2 class="sec-title">Let's build something<br>unreasonable.</h2>
+      <h2 class="sec-title">Let's engineer<br>the impossible.</h2>
     </div>
     <div class="cc reveal" style="transition-delay:.1s">
-      <p>I'm a 2nd-year student who builds OS kernels from scratch and publishes about them. Open to internships, research collaborations, and conversations about hard problems in systems engineering.</p>
+      <p>I'm a 3rd-year student who builds OS kernels from scratch for fun. Open to internships, research collaborations, and conversations about hard problems in systems engineering.</p>
       <div class="cl">
         <a href="mailto:hariharanjanarthanan182006@gmail.com" class="clink">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -720,10 +753,10 @@ footer em{color:var(--cr);font-style:normal}
 </section>
 
 <footer>
-  <p><em>Hariharan J </em> &nbsp;·&nbsp; Sri Sairam Institute of Technology, Kanchipuram &nbsp;·&nbsp; 2025</p>
+  <p><em>Hariharan J </em> &nbsp;·&nbsp; Sri Sairam Institute of Technology, Kanchipuram &nbsp;·&nbsp; 2026</p>
 </footer>
 
-<script>
+<script defer>
 (function(){
   'use strict';
 
@@ -743,7 +776,7 @@ footer em{color:var(--cr);font-style:normal}
 
     (function lerp(){
       rx+=(mx-rx)*.13; ry+=(my-ry)*.13;
-      curR.style.transform='translate(calc('+rx.toFixed(2)+'px - 50%), calc('+ry.toFixed(2)+'px - 50%))';
+      curR.style.transform='translate(calc('+(rx|0)+'px - 50%), calc('+(ry|0)+'px - 50%))';
       requestAnimationFrame(lerp);
     })();
 
@@ -820,7 +853,18 @@ footer em{color:var(--cr);font-style:normal}
     })();
   }
 
-  setTimeout(nextLine, 700);
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    lines.forEach(function(line){
+      if(line.cls==='sep') return;
+      var row=document.createElement('div'); row.className='tl '+line.cls;
+      var p=document.createElement('span'); p.className='pre'; p.textContent=line.pre; row.appendChild(p);
+      var t=document.createElement('span'); t.className='tx'; t.textContent=line.tx; row.appendChild(t);
+      tb.appendChild(row);
+    });
+    var csr=document.createElement('span'); csr.className='t-csr'; tb.appendChild(csr);
+  } else {
+    setTimeout(nextLine, 300);
+  }
 
   /* ── hamburger ── */
   var ham = document.getElementById('ham');
@@ -860,11 +904,11 @@ footer em{color:var(--cr);font-style:normal}
       entries.forEach(function(e){
         if(e.isIntersecting){
           navAs.forEach(function(a){
-            a.style.color = a.getAttribute('href')==='#'+e.target.id ? 'var(--text)' : '';
+            a.classList.toggle('nav-active', a.getAttribute('href')==='#'+e.target.id);
           });
         }
       });
-    },{threshold:.4});
+    },{threshold:.35,rootMargin:'-10% 0px -60% 0px'});
     secs.forEach(function(s){ sio.observe(s); });
   }
 
