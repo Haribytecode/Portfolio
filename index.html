@@ -299,8 +299,7 @@ section{position:relative;z-index:1;padding:clamp(4.5rem,9vw,8rem) clamp(1.25rem
 /* ── PROJECTS BENTO ── */
 .bento{
   display:grid;
-  grid-template-columns:1.55fr 1fr;
-  grid-template-rows:auto auto;
+  grid-template-columns:1fr;
   gap:1.2rem;margin-top:3rem;
 }
 .pc{
@@ -319,16 +318,13 @@ section{position:relative;z-index:1;padding:clamp(4.5rem,9vw,8rem) clamp(1.25rem
 .pc:hover::after{opacity:1}
 .pc:active{transform:translateY(-2px) scale(.99)}
 
-.pc-feat{grid-row:1 / 3}
+.pc-feat{grid-row:auto}
 .pc-feat:hover{border-color:rgba(232,56,79,.25)}
 
 .pc-soon{border-color:rgba(157,111,255,.15)}
 .pc-soon::after{background:radial-gradient(circle at 50% -10%,rgba(157,111,255,.05),transparent 55%)}
 .pc-soon:hover{border-color:rgba(157,111,255,.32);box-shadow:0 18px 50px rgba(0,0,0,.32)}
 
-.pc-web{border-color:rgba(56,200,240,.12)}
-.pc-web::after{background:radial-gradient(circle at 50% -10%,rgba(56,200,240,.05),transparent 55%)}
-.pc-web:hover{border-color:rgba(56,200,240,.28)}
 
 .pi{
   width:42px;height:42px;border-radius:var(--rsm);
@@ -345,7 +341,6 @@ section{position:relative;z-index:1;padding:clamp(4.5rem,9vw,8rem) clamp(1.25rem
 }
 .pb-live{background:rgba(232,56,79,.1);color:var(--cr);border:1px solid rgba(232,56,79,.22)}
 .pb-soon{background:rgba(157,111,255,.1);color:var(--pu);border:1px solid rgba(157,111,255,.22)}
-.pb-web{background:rgba(56,200,240,.1);color:var(--ic);border:1px solid rgba(56,200,240,.22)}
 
 .pt{font-family:var(--fd);font-size:1.08rem;font-weight:700;margin-bottom:.55rem;line-height:1.25}
 .pc-feat .pt{font-size:1.25rem}
@@ -539,7 +534,7 @@ footer em{color:var(--cr);font-style:normal}
         <span class="n2">Systems<br>Software Dev.</span>
       </h1>
       <p class="hero-role">// 3rd year &nbsp;·&nbsp; blackpeak kernel engineer &nbsp;·&nbsp; kanchipuram, india</p>
-      <p class="hero-sub">Building systems-level software most engineers never touch — a custom x86 OS kernel from bare metal, low-level tooling, and bare-metal performance. Driven by Linux internals and a refusal to stay surface-level.</p>
+      <p class="hero-sub">Building systems-level software most engineers never touch — a custom x86 OS kernel, low-level tooling, and bare-metal performance. Driven by Linux kernel internals and a refusal to stay surface-level.</p>
       <div class="hero-ctas">
         <a href="#projects" class="btn-p">View Projects</a>
         <a href="#contact" class="btn-g">Get in Touch</a>
@@ -636,20 +631,6 @@ footer em{color:var(--cr);font-style:normal}
         </div>
       </article>
 
-      <!-- MOTIVAZE -->
-      <article class="pc pc-web reveal" style="transition-delay:.09s" aria-label="Motivaze web project">
-        <div class="pi pi-b" aria-hidden="true">🌐</div>
-        <span class="pb pb-web">Live &nbsp;·&nbsp; Jul 2025</span>
-        <h3 class="pt">Motivaze</h3>
-        <p class="pd">A personal web project integrating a quote-generation API to fetch and display dynamic motivational content on user interaction — clean and functional frontend.</p>
-        <div class="tags">
-          <span class="tg">HTML</span>
-          <span class="tg">CSS</span>
-          <span class="tg">JavaScript</span>
-          <span class="tg">REST API</span>
-        </div>
-      </article>
-
     </div>
   </div>
 </section>
@@ -700,16 +681,6 @@ footer em{color:var(--cr);font-style:normal}
           <span class="pl">Linux</span>
           <span class="pl">Linker Scripts</span>
           <span class="pl">VS Code</span>
-        </div>
-      </div>
-
-      <div class="sg reveal" style="transition-delay:.2s">
-        <div class="sg-t">🌐 Web &amp; Problem Solving</div>
-        <div class="pl-list">
-          <span class="pl p">HTML / CSS / JS</span>
-          <span class="pl">REST APIs</span>
-          <span class="pl p">LeetCode — 50+ in C++</span>
-          <span class="pl">Responsive Design</span>
         </div>
       </div>
 
