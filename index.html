@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Hariharan J — Systems Software Developer. Built Blackpeak, a 32-bit x86 OS kernel from scratch in C and Assembly. 3rd year B.Tech IT, Sri Sairam Institute of Technology.">
+<meta name="description" content="Hariharan J | Systems Software Engineer. Built Blackpeak, a 32-bit x86 OS kernel from scratch in C and x86 Assembly. 3rd year B.Tech IT, Sri Sairam Institute of Technology. CUDA Certified, Johns Hopkins University.">
 <meta name="theme-color" content="#04060D">
-<meta property="og:title" content="Hariharan J — Systems Software Developer">
-<meta property="og:description" content="Built Blackpeak, a 32-bit x86 OS kernel from scratch. Ring 0↔3 transitions, demand paging, preemptive scheduler.">
+<meta property="og:title" content="Hariharan J | Systems Software Engineer">
+<meta property="og:description" content="Built Blackpeak, a 32-bit x86 OS kernel from scratch. VFS, demand paging, preemptive scheduler. CUDA Certified by Johns Hopkins University.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://haribytecode.github.io/Portfolio">
-<title>Hariharan J — Systems Software Developer</title>
+<title>Hariharan J | Systems Software Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"></noscript>
 <style>
 /* ── RESET ── */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -35,8 +35,8 @@ ul{list-style:none}
   --r:18px;
   --rsm:11px;
   --nh:68px;
-  --fd:'Syne',sans-serif;
-  --fb:'DM Sans',sans-serif;
+  --fd:'Space Grotesk',sans-serif;
+  --fb:'Inter',sans-serif;
   --fm:'JetBrains Mono',monospace;
   --ease:cubic-bezier(.25,.46,.45,.94);
 }
@@ -52,7 +52,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--fb);overflow-x:hid
 /* ── TOUCH FAST TAP ── */
 a,button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 
-/* ── CONTAIN — reduce repaints ── */
+/* ── CONTAIN: reduce repaints ── */
 .pc,.sg,.sc,.cc,.pub{contain:layout style}
 
 /* ── CUSTOM CURSOR (mouse only) ── */
@@ -85,7 +85,7 @@ nav.top-nav{
   font-family:var(--fd);font-size:1.3rem;font-weight:800;
   background:linear-gradient(135deg,var(--cr),var(--pu));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  letter-spacing:-.5px;flex-shrink:0;
+  letter-spacing:-.3px;flex-shrink:0;
 }
 .nav-links{display:flex;gap:1.8rem;align-items:center}
 .nav-links a{
@@ -106,6 +106,7 @@ nav.top-nav{
   font-family:var(--fd);font-weight:700;font-size:.8rem;white-space:nowrap;
   transition:transform .2s var(--ease),box-shadow .2s var(--ease);
   box-shadow:0 0 18px rgba(232,56,79,.28);flex-shrink:0;
+  cursor:pointer;position:relative;z-index:1;
 }
 .nav-hire:hover{transform:translateY(-2px);box-shadow:0 0 34px rgba(232,56,79,.5)}
 .nav-hire:active{transform:scale(.97)}
@@ -139,11 +140,14 @@ nav.top-nav{
 .mob a{font-size:.95rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;transition:color .2s;padding:.3rem 0}
 .mob a:hover{color:var(--text)}
 .mob-hire{
-  display:inline-block;margin-top:.6rem;align-self:flex-start;
-  padding:.7rem 1.6rem;border-radius:100px;
+  display:block;margin-top:.8rem;
+  padding:1rem 1.6rem;border-radius:100px;
   background:var(--cr);color:#fff;
-  font-family:var(--fd);font-weight:700;font-size:.88rem;
-  transition:transform .2s;
+  font-family:var(--fd);font-weight:700;font-size:.95rem;
+  text-align:center;cursor:pointer;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:0 0 18px rgba(232,56,79,.3);
+  min-height:48px;display:flex;align-items:center;justify-content:center;
 }
 .mob-hire:active{transform:scale(.97)}
 
@@ -161,7 +165,7 @@ section{position:relative;z-index:1;padding:clamp(4.5rem,9vw,8rem) clamp(1.25rem
 .sec-title{
   font-family:var(--fd);
   font-size:clamp(1.85rem,4.2vw,3rem);
-  font-weight:800;letter-spacing:-.025em;line-height:1.08;margin-bottom:1rem;
+  font-weight:800;letter-spacing:-.015em;line-height:1.08;margin-bottom:1rem;
 }
 
 /* ── REVEAL ── */
@@ -194,7 +198,7 @@ section{position:relative;z-index:1;padding:clamp(4.5rem,9vw,8rem) clamp(1.25rem
 .hero-name{
   font-family:var(--fd);
   font-size:clamp(2.6rem,6vw,5.2rem);
-  font-weight:800;line-height:.93;letter-spacing:-.035em;margin-bottom:.75rem;
+  font-weight:800;line-height:.93;letter-spacing:-.02em;margin-bottom:.75rem;
 }
 .hero-name .n1{display:block;color:var(--text)}
 .hero-name .n2{
@@ -458,28 +462,54 @@ footer{
 footer em{color:var(--cr);font-style:normal}
 
 /* ── RESPONSIVE ── */
-@media(max-width:768px){.nav-links,.nav-hire{display:none}.ham{display:flex}.mob{display:flex}}
+@media(max-width:900px){
+  .nav-links,.nav-hire{display:none}
+  .ham{display:flex}
+  .mob{display:flex}
+}
 
 @media(max-width:960px){
-  @media(max-width:960px){
-
-  .hero-wrap{grid-template-columns:1fr;gap:2.5rem}
+  .hero-wrap{grid-template-columns:1fr;gap:2rem}
+  .terminal{width:100%;max-width:100%;box-sizing:border-box}
   #about .inner{grid-template-columns:1fr;gap:2.5rem}
   .bento{grid-template-columns:1fr;grid-template-rows:auto}
   .pc-feat{grid-row:auto}
   .sg-grid{grid-template-columns:1fr}
   .pub{flex-direction:column;gap:1.2rem}
+  .cert-card{flex-direction:column;gap:1.2rem}
+  section{padding-top:4rem;padding-bottom:4rem}
 }
+
+@media(max-width:600px){
+  .terminal{display:none}
+  .hero-wrap{gap:1.5rem}
+  section{padding-top:3.5rem;padding-bottom:3.5rem}
+}
+
 @media(max-width:560px){
   .orb{display:none}
   .hero-ctas{flex-direction:column;align-items:stretch}
-  .btn-p,.btn-g{text-align:center}
+  .btn-p,.btn-g{text-align:center;width:100%;padding:.9rem 1rem;font-size:.95rem}
   .stats{grid-template-columns:1fr 1fr}
   .cl{flex-direction:column;align-items:center}
-  .clink{width:100%;max-width:240px;justify-content:center}
+  .clink{width:100%;max-width:280px;justify-content:center;padding:.75rem 1rem}
   .hero-scroll{display:none}
+  .hero-name{font-size:clamp(2.4rem,11vw,3.5rem)}
+  .sec-title{font-size:clamp(1.7rem,7vw,2.2rem)}
+  .pbullets li{font-size:.8rem}
+  .pl{font-size:.75rem;padding:4px 10px}
+  .tg{font-size:.68rem}
+  .sn{font-size:1.8rem}
+  .stat-lbl{font-size:.72rem}
+  nav.top-nav{padding:0 1rem}
+  .nav-logo{font-size:1.15rem}
+  .ham{width:34px;height:34px;padding:6px}
 }
-@media(max-width:380px){.stats{grid-template-columns:1fr}}
+
+@media(max-width:380px){
+  .stats{grid-template-columns:1fr}
+  .hero-name{font-size:clamp(2rem,10vw,2.8rem)}
+}
 
 /* ── REDUCED MOTION ── */
 @media(prefers-reduced-motion:reduce){
@@ -488,6 +518,64 @@ footer em{color:var(--cr);font-style:normal}
   .reveal{opacity:1;transform:none;transition:none}
   .orb{animation:none}
 }
+
+/* ── DOT GRID HERO ── */
+#hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(rgba(232,56,79,.07) 1px,transparent 1px);
+  background-size:28px 28px;pointer-events:none;z-index:0;
+  -webkit-mask-image:radial-gradient(ellipse 65% 70% at 25% 50%,black 25%,transparent 75%);
+  mask-image:radial-gradient(ellipse 65% 70% at 25% 50%,black 25%,transparent 75%);
+}
+
+/* ── CERT CARD ── */
+.cert-card{
+  position:relative;
+  background:var(--gl);
+  border-radius:var(--r);
+  padding:clamp(1.4rem,3vw,2rem) clamp(1.4rem,3vw,2.2rem);
+  backdrop-filter:blur(14px);
+  overflow:hidden;
+  display:flex;align-items:flex-start;
+  gap:clamp(1.2rem,3vw,2rem);
+  margin-top:3rem;
+  transition:transform .28s var(--ease);
+}
+.cert-card:hover{transform:translateY(-3px)}
+/* animated gradient border */
+.cert-card::before{
+  content:'';position:absolute;inset:0;
+  border-radius:inherit;padding:1px;
+  background:linear-gradient(135deg,var(--cr),var(--pu),var(--ic),var(--cr));
+  background-size:300% 300%;
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  animation:borderSpin 4s ease infinite;
+  pointer-events:none;
+}
+@keyframes borderSpin{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.cert-badge{
+  width:52px;height:52px;border-radius:13px;flex-shrink:0;
+  background:linear-gradient(135deg,rgba(232,56,79,.12),rgba(157,111,255,.12));
+  border:1px solid rgba(232,56,79,.2);
+  display:flex;align-items:center;justify-content:center;font-size:1.5rem;
+}
+.cert-issuer{font-size:.7rem;color:var(--muted);letter-spacing:.05em;margin-bottom:.4rem}
+.cert-issuer span{color:var(--cr)}
+.cert-title{font-family:var(--fd);font-size:1.05rem;font-weight:700;margin-bottom:.5rem;line-height:1.3}
+.cert-desc{font-size:.84rem;color:var(--muted);line-height:1.7;margin-bottom:1rem}
+.cert-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.8rem;color:var(--cr);font-weight:500;
+  transition:gap .2s var(--ease);
+}
+.cert-link:hover{gap:10px}
+.cert-link svg{width:14px;height:14px;flex-shrink:0}
+
+/* ── CUDA SKILL FULL WIDTH ── */
+.sg.cuda-sg{grid-column:1 / -1}
+
 </style>
 </head>
 <body>
@@ -506,7 +594,8 @@ footer em{color:var(--cr);font-style:normal}
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
-    
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#publications">Publications</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="mailto:hariharanjanarthanan182006@gmail.com" class="nav-hire">Hire Me</a>
@@ -533,8 +622,8 @@ footer em{color:var(--cr);font-style:normal}
         <span class="n1">Hariharan J</span>
         <span class="n2">Systems<br>Software Dev.</span>
       </h1>
-      <p class="hero-role">// 3rd year &nbsp;·&nbsp; blackpeak kernel engineer &nbsp;·&nbsp; kanchipuram, india</p>
-      <p class="hero-sub">Building systems-level software most engineers never touch — a custom x86 OS kernel, low-level tooling, and bare-metal performance. Driven by Linux kernel internals and a refusal to stay surface-level.</p>
+      <p class="hero-role">// systems software engineer &nbsp;·&nbsp; kanchipuram, india</p>
+      <p class="hero-sub">Building systems-level software most engineers never touch: a custom x86 OS kernel from bare metal, GPU parallel computing with CUDA, and a refusal to stay surface-level.</p>
       <div class="hero-ctas">
         <a href="#projects" class="btn-p">View Projects</a>
         <a href="#contact" class="btn-g">Get in Touch</a>
@@ -567,8 +656,8 @@ footer em{color:var(--cr);font-style:normal}
     <div class="about-body reveal">
       <div class="sec-label">About Me</div>
       <h2 class="sec-title">Low-level systems,<br>high-level ambition.</h2>
-      <p>I'm <strong>Hariharan J </strong>, a Systems Software Developer and 3rd-year B.Tech IT student at Sri Sairam Institute of Technology, Kanchipuram (Expected Graduation: May 2028). I work on the parts of computing most developers actively avoid — the kernel, the bare metal, the code where a wrong bit crashes everything.</p>
-      <p>I designed and built <strong>Blackpeak</strong> — a monolithic, higher-half 32-bit x86 kernel with isolated virtual address spaces, demand paging, a preemptive scheduler, and Ring 0 ↔ Ring 3 privilege transitions via TSS-based stack switching. No tutorials. No shortcuts. Every subsystem is mine.</p>
+      <p>I'm <strong>Hariharan J </strong>, a Systems Software Engineer and 3rd-year B.Tech IT student at Sri Sairam Institute of Technology, Kanchipuram (Expected Graduation: May 2028). I work on the parts of computing most developers actively avoid: the kernel, the bare metal, the code where a wrong bit crashes everything.</p>
+      <p>I designed and built <strong>Blackpeak</strong>: a monolithic, higher-half 32-bit x86 kernel with isolated virtual address spaces, demand paging, a preemptive scheduler, and Ring 0 ↔ Ring 3 privilege transitions via TSS-based stack switching. No tutorials. No shortcuts. Every subsystem is mine.</p>
       <p>Driven by <strong>Linux kernel development</strong>, low-level tooling, and high-performance bare-metal engineering. Published on Medium. Currently designing a Virtual File System layer.</p>
     </div>
     <div class="stats reveal" style="transition-delay:.12s" aria-label="Key statistics">
@@ -577,7 +666,7 @@ footer em{color:var(--cr);font-style:normal}
         <div class="sl">CGPA · Sri Sairam Institute of Technology</div>
       </div>
       <div class="sc">
-        <div class="sn p">11+</div>
+        <div class="sn p">13+</div>
         <div class="sl">Months building Blackpeak kernel</div>
       </div>
       <div class="sc">
@@ -603,21 +692,20 @@ footer em{color:var(--cr);font-style:normal}
     </div>
     <div class="bento">
 
-      <!-- BLACKPEAK — FEATURED -->
+      <!-- BLACKPEAK: FEATURED -->
       <article class="pc pc-feat reveal" aria-label="Blackpeak OS Kernel project">
         <div class="pi pi-r" aria-hidden="true">⚙️</div>
-        <span class="pb pb-live">Live &nbsp;·&nbsp; Aug 2025 – Present</span>
-        <h3 class="pt">Blackpeak — 32-bit x86 OS Kernel</h3>
-        <p class="pd">A monolithic, higher-half x86 kernel built from absolute zero in C and Assembly. Every subsystem designed, implemented, and debugged by hand — GRUB to Ring 3.</p>
+        <span class="pb pb-live">Live &nbsp;·&nbsp; Aug 2025 - Present</span>
+        <h3 class="pt">Blackpeak: 32-bit x86 OS Kernel</h3>
+        <p class="pd">A monolithic, higher-half x86 kernel built from absolute zero in C and x86 Assembly. Every subsystem designed, implemented, and debugged by hand. GRUB to Ring 3 and beyond.</p>
         <ul class="pbullets">
-          <li>GRUB Multiboot, custom assembly bootstrap, and tailored linker scripts</li>
-          <li>Dual-layered VM: bitmap physical frame allocator + recursive page directory + INT 14 demand paging</li>
-          <li>User/kernel isolation via hardware CR3 switching — fully sandboxed user environments</li>
-          <li>Preemptive round-robin scheduler with low-level ASM context switching and per-task kernel stacks</li>
-          <li>INT 0x80 syscall gateway with TSS-based stack switching for Ring 0 ↔ Ring 3 transitions</li>
-          <li>VGA text console, UART serial debug logging, GDB remote kernel targets</li>
-          <li>Verified 100% runtime parity across QEMU and VirtualBox</li>
-          <li>Currently: designing abstract VFS interface for storage drivers and initrd ramdisk</li>
+          <li>Architected a monolithic, higher-half x86-32 kernel bootstrapped via GRUB Multiboot, with assembly entry stub and a custom linker script mapping the kernel to the 3 GiB virtual boundary</li>
+          <li>Built a dual-layer virtual memory subsystem combining a bitmap physical frame allocator with recursive page-directory mapping, providing a demand-paging foundation through an INT 14 page-fault handler</li>
+          <li>Enforced Ring 0 / Ring 3 address-space isolation through hardware CR3 page-directory switching, giving each user process its own address space while sharing a higher-half kernel mapping</li>
+          <li>Designed a preemptive round-robin scheduler driven by PIT timer interrupts, with assembly context-switch routines saving and restoring full register and per-task kernel stack state</li>
+          <li>Implemented an INT 0x80 system call gateway backed by a hardware Task State Segment (TSS) for stack switching, enabling controlled Ring 0 to Ring 3 transitions</li>
+          <li>Engineered a modular Virtual File System (VFS) layer with a node/operations abstraction (vfs_node_t), deploying a writable in-memory ramfs and a zero-copy embedded tarfs linked via .incbin</li>
+          <li>Integrated a VGA text-mode console, UART serial debug logging, and a GDB remote-stub pipeline; verified consistent runtime behavior across QEMU, Bochs, and VirtualBox</li>
         </ul>
         <div class="tags">
           <span class="tg">C</span>
@@ -628,6 +716,7 @@ footer em{color:var(--cr);font-style:normal}
           <span class="tg">GDB</span>
           <span class="tg">Linker Scripts</span>
           <span class="tg">UART</span>
+          <span class="tg">Bochs</span>
         </div>
       </article>
 
@@ -652,21 +741,24 @@ footer em{color:var(--cr);font-style:normal}
           <span class="pl r">C</span>
           <span class="pl r">C++</span>
           <span class="pl r">x86 Assembly</span>
+          <span class="pl">DSA in C++</span>
         </div>
       </div>
 
       <div class="sg reveal" style="transition-delay:.08s">
-        <div class="sg-t">🔧 Systems &amp; OS Internals</div>
+        <div class="sg-t">🔧 OS Internals</div>
         <div class="pl-list">
-          <span class="pl r">Memory Management</span>
-          <span class="pl">Virtual Memory</span>
-          <span class="pl">Paging / Demand Paging</span>
+          <span class="pl r">Virtual Memory</span>
+          <span class="pl r">Paging / Demand Paging</span>
+          <span class="pl">Memory Layout</span>
           <span class="pl">Process Scheduling</span>
           <span class="pl">Context Switching</span>
           <span class="pl">System Calls</span>
+          <span class="pl">GDT / IDT</span>
           <span class="pl">Protected Mode</span>
-          <span class="pl">Computer Architecture</span>
-          <span class="pl">Linux Kernel Fundamentals</span>
+          <span class="pl">CR3 Switching</span>
+          <span class="pl">TSS</span>
+          <span class="pl">Ring 0/3 Isolation</span>
         </div>
       </div>
 
@@ -674,13 +766,25 @@ footer em{color:var(--cr);font-style:normal}
         <div class="sg-t">🛠️ Tools &amp; Platforms</div>
         <div class="pl-list">
           <span class="pl b">QEMU</span>
+          <span class="pl b">GDB</span>
           <span class="pl">VirtualBox</span>
           <span class="pl">Bochs</span>
-          <span class="pl b">GDB</span>
           <span class="pl">Git / GitHub</span>
           <span class="pl">Linux</span>
           <span class="pl">Linker Scripts</span>
           <span class="pl">VS Code</span>
+        </div>
+      </div>
+
+      <div class="sg cuda-sg reveal" style="transition-delay:.2s">
+        <div class="sg-t">⚡ Parallel Computing</div>
+        <div class="pl-list">
+          <span class="pl b">CUDA</span>
+          <span class="pl">GPU Thread Hierarchies</span>
+          <span class="pl">Shared Memory Optimization</span>
+          <span class="pl">Memory Coalescing</span>
+          <span class="pl">Kernel Launch Configurations</span>
+          <span class="pl b">Johns Hopkins Certified</span>
         </div>
       </div>
 
@@ -689,6 +793,54 @@ footer em{color:var(--cr);font-style:normal}
 </section>
 
 
+
+<div class="divider" aria-hidden="true"></div>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" aria-label="Certifications">
+  <div class="inner">
+    <div class="reveal">
+      <div class="sec-label">Certifications</div>
+      <h2 class="sec-title">Verified expertise.</h2>
+    </div>
+    <div class="cert-card reveal" style="transition-delay:.1s">
+      <div class="cert-badge" aria-hidden="true">🎓</div>
+      <div class="cert-body">
+        <div class="cert-issuer"><span>Johns Hopkins University</span> &nbsp;·&nbsp; Coursera &nbsp;·&nbsp; Jul 31, 2026</div>
+        <h3 class="cert-title">Introduction to Parallel Programming with CUDA</h3>
+        <p class="cert-desc">Certified in GPU parallel computing fundamentals including thread hierarchies, memory coalescing, shared memory optimization, and kernel launch configurations on NVIDIA CUDA architecture.</p>
+        <a href="https://coursera.org/verify/FSXLPS3H4XP3" target="_blank" rel="noopener noreferrer" class="cert-link">
+          Verify Certificate
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true"></div>
+
+<!-- PUBLICATIONS -->
+<section id="publications" aria-label="Publications">
+  <div class="inner">
+    <div class="reveal">
+      <div class="sec-label">Publications</div>
+      <h2 class="sec-title">Building in public.</h2>
+    </div>
+    <div class="pub reveal" style="transition-delay:.1s">
+      <div class="pub-icon" aria-hidden="true">📝</div>
+      <div class="pub-body">
+        <div class="pub-meta"><span>Medium</span> &nbsp;·&nbsp; January 2026</div>
+        <h3 class="pub-title">Building a Custom 32-bit Operating System from Scratch</h3>
+        <p class="pub-desc">Technical article on designing and implementing a custom x86 OS kernel, covering bootstrapping, interrupt handling, memory management, and preemptive multitasking.</p>
+        <a href="https://medium.com" target="_blank" rel="noopener noreferrer" class="pub-link">
+          Read on Medium
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <div class="divider" aria-hidden="true"></div>
 
@@ -724,7 +876,7 @@ footer em{color:var(--cr);font-style:normal}
 </section>
 
 <footer>
-  <p><em>Hariharan J </em> &nbsp;·&nbsp; Sri Sairam Institute of Technology, Kanchipuram &nbsp;·&nbsp; 2026</p>
+  <p><em>Hariharan J</em> &nbsp;·&nbsp; Sri Sairam Institute of Technology, Kanchipuram &nbsp;·&nbsp; 2026</p>
 </footer>
 
 <script defer>
@@ -769,7 +921,8 @@ footer em{color:var(--cr);font-style:normal}
     {pre:'>',  tx:'Paging   :  Higher-half + Demand', cls:'tok'},
     {pre:'>',  tx:'Sched    :  Preemptive Round-Robin', cls:'tok'},
     {pre:'>',  tx:'Syscall  :  INT 0x80 / TSS (esp0)', cls:'tok'},
-    {pre:'>',  tx:'VFS      :  [ IN PROGRESS ]', cls:'twarn'},
+    {pre:'>',  tx:'VFS      :  ramfs + tarfs (LIVE)', cls:'tok'},
+    {pre:'>',  tx:'CUDA     :  Parallel (JHU Cert)', cls:'tok'},
     {pre:'',   tx:'sep', cls:'sep'},
     {pre:'#',  tx:'STATUS   :  OPERATIONAL', cls:'tstat'},
   ];
